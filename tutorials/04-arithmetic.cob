@@ -1,0 +1,20 @@
+; Tutorial 4: Arithmetic Operations
+MOV AX, 10
+MOV BX, 5
+ADD AX, BX
+OUTPUT AX      ; 15
+
+MOV AX, 100
+MOV BX, 30
+SUB AX, BX
+OUTPUT AX      ; 70
+
+MOV AX, 7
+MOV BX, 8
+MUL AX, BX
+OUTPUT AX      ; 56
+
+MOV AX, 100
+MOV BX, 4
+DIV AX, BX
+OUTPUT AX      ; 25

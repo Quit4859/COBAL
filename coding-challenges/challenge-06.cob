@@ -1,0 +1,11 @@
+; Challenge 6: Simple Counter 1-5
+MOV AX, 1
+OUTPUT AX
+MOV AX, 2
+OUTPUT AX
+MOV AX, 3
+OUTPUT AX
+MOV AX, 4
+OUTPUT AX
+MOV AX, 5
+OUTPUT AX

@@ -1,0 +1,2 @@
+MOV AX, 42
+OUTPUT AX
