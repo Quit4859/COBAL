@@ -1,80 +1,59 @@
-# COBAL Complete Learning Package
+# COBAL
+
+A register-based assembly language interpreter utilizing A86-style syntax for educational purposes.
 
 ## Overview
-This repository contains comprehensive learning materials for the COBAL programming language - an A86 assembly language simulator designed for educational purposes.
 
-## Directory Structure
+COBAL is a minimal assembly language interpreter with a constrained architecture consisting of four general-purpose registers (AX, BX, CX, DX), three data types (integer, float, character), and a limited instruction set. Programs are interpreted line by line without compilation to executable files.
 
-```
-/workspaces/COBAL/
-├── DOCUMENTARY.md         # 6-chapter documentary
-├── learn/               # Core learning materials (9 files)
-├── tutorials/           # Step-by-step tutorials (5 files)
-├── projects/            # Project templates (4 files)
-├── cheat-sheets/        # Quick references (2 files)
-├── explanations/        # Deep dives (5 files)
-├── resources/           # External links & references (3 files)
-├── coding-challenges/   # 15+ challenges with solutions
-└── README.md            # This overview
-```
+## Architecture
 
-## Learning Path
+- **Registers**: AX (accumulator), BX (base), CX (counter), DX (data) - all 16-bit unsigned
+- **Data Types**: Integer (0-65535), Float (16-bit), Character (ASCII 0-255)
+- **Execution**: Sequential line-by-line interpretation
+- **Control Flow**: None - all iteration must be manually unrolled
+- **Memory Model**: Pure register-only, no heap or stack access
 
-### Week 1: Fundamentals
-- Start with `learn/1-introduction.md` and `learn/2-syntax.md`
-- Complete tutorials `01-hello-world.md` through `05-complete-programs.md`
-- Master registers, data types, and basic operations
+## Instruction Set
 
-### Week 2: Arithmetic and Programs
-- Study `learn/3-data-types.md` through `learn/5-operations.md`
-- Work through tutorial complete programs
-- Begin project templates
+| Instruction | Syntax | Description |
+|-------------|--------|-------------|
+| MOV | `MOV dest, src` | Copy value from source to destination |
+| ADD | `ADD dest, src` | Add source to destination (dest = dest + src) |
+| SUB | `SUB dest, src` | Subtract source from destination (dest = dest - src) |
+| MUL | `MUL dest, src` | Multiply destination by source (dest = dest * src) |
+| DIV | `DIV dest, src` | Divide destination by source (dest = dest / src) |
+| INPUT | `INPUT dest` | Read user input into destination register |
+| OUTPUT | `OUTPUT src` | Display value of source register |
 
-### Week 3: Practice and Projects
-- Complete all 15 coding challenges
-- Build project implementations
-- Use cheat sheets for reference
+## Repository Structure
 
-### Week 4: Advanced
-- Deep dive into explanations
-- Explore resources and relatedanguages
-- Document learning journey
-
-## Key Learning Outcomes
-
-### What You'll Learn
-1. **Assembly Concepts**: Register operations, postfix notation, stack evaluation
-2. **COBAL Syntax**: MOV, ADD, SUB, MUL, DIV, INPUT, OUTPUT instructions
-3. **Data Types**: Integer (0-65536), 16-bit float, 1-byte character
-4. **COBAL Limitations**: No conditionals, no loops, no strings, 4 registers only
-5. **Problem-Solving**: Working within constraints to achieve goals
-
-### What COBAL Teaches
-- Fundamental computer architecture concepts
-- Register-based thinking
-- Stack-based computation
-- Minimalist programming methodology
-- How assembly languages bridge high-level and low-level computing
-
-## Challenge Completion Status
-
-| Challenge | Solved | Key Learning |
-|-----------|--------|--------------|
-| 1: Register Swap | ✓ | COBAL arithmetic limitations |
-| 2: Fibonacci | ✓ | Register cycling techniques |
-| 3: Factorial | ✓ | Multiplication chains |
-| 4: Average | ✓ | 4-register constraint handling |
-| 5: F→C Conversion | ✓ | Postfix math operations |
-| 6: Counter | ✓ | Manual line unrolling |
-| 7: Maximum | ✓ | Conditional workarounds |
-| 8: Unit Converter | ✓ | Approximation techniques |
-| 9: ASCII Ops | ✓ | Character encoding |
-| 10: Register Paradox | ✓ | Expression partitioning |
-| 11: Countdown | ✓ | Sequential output |
-| 12: Double & Add | ✓ | Iterative multiplication |
-| 13: XOR Swap | ~ | Instruction availability |
-| 14: Number Pyramid | ✓ | Output unrolling |
-| 15: Sum 1-5 | ✓ | Sequential accumulation |
+| Directory | Description |
+|-----------|-------------|
+| `basic/` | Fundamental concepts and core language features |
+| `code-examples/` | Standalone executable COBAL programs |
+| `compiler-design/` | Intermediate representation and code generation |
+| `concurrent-systems/` | Parallel computation models |
+| `cryptographic-primitives/` | Cryptographic algorithm implementations |
+| `distributed-algorithms/` | Consensus and fault tolerance |
+| `examples/` | Practical programming examples |
+| `exercises/` | Practice problems and challenges |
+| `formal-methods/` | Theorem proving and model checking |
+| `formal-verification/` | Correctness proofs and verification |
+| `language-semantics/` | Formal language semantics |
+| `learning-path/` | Structured learning curriculum |
+| `memory-management/` | Allocation and garbage collection |
+| `metaprogramming/` | Code generation and transformation |
+| `numerical-analysis/` | Numerical methods and algorithms |
+| `optimization-theory/` | Dataflow analysis and optimization |
+| `patterns/` | Common programming patterns |
+| `program-synthesis/` | Automatic program synthesis |
+| `projects/` | Complete project implementations |
+| `runtime-systems/` | Interpreter design and execution |
+| `source-collection/` | Collected source code examples |
+| `static-analysis/` | Program analysis techniques |
+| `tutorials/` | Step-by-step tutorials |
+| `type-systems/` | Type theory and inference |
 
 ## Quick Start
 
@@ -87,39 +66,38 @@ OUTPUT AX
 ### Basic Arithmetic
 ```assembly
 MOV AX, 10
-MOV BX, 5
-ADD AX, BX
-OUTPUT AX   ; 15
-```
-
-### Average of 4 Numbers
-```assembly
-MOV AX, 10
 MOV BX, 20
-MOV CX, 30
-MOV DX, 40
-ADD AX, BX      ; AX=30
-ADD AX, CX      ; AX=60
-ADD AX, DX      ; AX=100
-MOV BX, 4
-DIV AX, BX
-OUTPUT AX       ; 25
+ADD AX, BX
+OUTPUT AX      ; Outputs 30
 ```
 
-## Getting Help
+### Temperature Conversion
+```assembly
+MOV AX, 25
+MOV BX, 9
+MUL AX, BX
+MOV BX, 5
+DIV AX, BX
+MOV BX, 32
+ADD AX, BX
+OUTPUT AX      ; Outputs 77
+```
 
-- `learn/` - Core concepts and syntax
-- `tutorials/` - Step-by-step guides
-- `projects/` - Hands-on projects
-- `cheat-sheets/` - Quick references
-- `challenges/` - Practice problems with solutions
-- `explanations/` - Deep dives into concepts
-- `resources/` - External learning materials
+## Key Constraints
 
-## Contributing
+- Only 4 registers available (AX, BX, CX, DX)
+- No conditional statements, loops, or jumps
+- No subroutines or functions
+- No arrays or data structures
+- No memory addressing
+- Integer division truncates (no remainder)
+- Overflow wraps modulo 65536
+- Line-by-line sequential execution only
 
-Add to this learning package by:
-- Creating new tutorials or projects
-- Adding challenge problems with solutions
-- Improving documentation
-- Sharing projects built with COBAL
+## Learning Resources
+
+Start with `basic/` for foundational concepts, proceed to `tutorials/` for guided instruction, work through `exercises/` for practice, and explore `patterns/` for common techniques.
+
+## License
+
+Educational use.
